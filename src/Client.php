@@ -70,7 +70,7 @@ class Client
 	{
 		Helper::optionalParam($params, 'BankGroupId', ParamType::STRING);
 
-		return $this->execute('Game.List');
+		return $this->execute('Game.List', $params);
 	}
 
 	/**
