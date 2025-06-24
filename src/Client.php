@@ -117,6 +117,16 @@ class Client
 	}
 
 	/**
+	 * Get a list of unprocessed `collectBonusReward` transactions that are less than 24 hours old.
+	 *
+	 * @return array
+	 */
+	public function getPendingBonusTransactions()
+	{
+		return $this->execute('Bonus.GetPendingBonusTransactions');
+	}
+
+	/**
 	 * Creates a game session.
 	 *
 	 * @param array $session
