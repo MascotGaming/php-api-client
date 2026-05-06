@@ -34,7 +34,9 @@ class Client
      *      - key_id (string, required)
      *      - key_value (string, required)
      *      - casino_id (int|string, required)
-     *      - nonce_start (int|string, optional, default: 0)
+     *      - nonce_start (int|string, optional)
+     *          Enables sequential nonce generation starting from the specified value.
+     *          If omitted, cryptographically secure random uint64 nonces are used.
      *
      * @param array $config
      * @throws Exception If the required configuration is missing or invalid.
@@ -80,8 +82,12 @@ class Client
 
             $start = array_key_exists('nonce_start', $signatureConfig) ? $signatureConfig['nonce_start'] : '0';
 
+            if ($start == 0) {
+                $nonce = new Signature\RandomNonce();
+            } else {
+                $nonce = new Signature\SequentialNonce($start);
+            }
             $signer = new Signature\Signer($keyId, $keyValue);
-            $nonce = new Signature\SequentialNonce($start);
 
             Signature\Middleware::attach(
                 $this->_client,

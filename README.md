@@ -50,7 +50,6 @@ $client = new Client(array(
         'key_id' => 'example-key',
         'key_value' => 'ExampleKeyValue',
         'casino_id' => $myCasinoID,
-        'nonce_start' => $randomNonceInt64,
     ),
 ));
 
