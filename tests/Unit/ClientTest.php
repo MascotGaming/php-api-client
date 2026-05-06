@@ -46,7 +46,7 @@ class ClientTest extends TestCase
         $params = array(
             'Id' => 'bg1',
             'Currency' => 'EUR',
-            'SettingsPatch' => 10,
+            'SettingsPatch' => '10',
         );
 
         $client->setBankGroup($params);

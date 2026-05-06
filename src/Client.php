@@ -119,6 +119,16 @@ class Client
     /**
      * Returns a list of available games.
      *
+     * Available params:
+     *  - BankGroupId (string, optional)
+     *
+     * Example:
+     * <code>
+     * $client->listGames(array(
+     *     'BankGroupId' => 'GoldenBet_EUR',
+     * ));
+     * </code>
+     *
      * @param array $params
      * @return array
      */
@@ -132,6 +142,20 @@ class Client
     /**
      * Creates or updates a bank group (aka "upsert").
      *
+     * Available params:
+     *  - Id (string, required)
+     *  - Currency (string, required)
+     *  - SettingsPatch (string, optional)
+     *
+     * Example:
+     * <code>
+     * $client->setBankGroup(array(
+     *     'Id' => 'GoldenBet_EUR',
+     *     'Currency' => 'EUR',
+     *     'SettingsPatch' => 'my_custom_patch',
+     * ));
+     * </code>
+     *
      * @param array $bankGroup
      * @return array
      */
@@ -139,13 +163,27 @@ class Client
     {
         Helper::requiredParam($bankGroup, 'Id', ParamType::STRING);
         Helper::requiredParam($bankGroup, 'Currency', ParamType::STRING);
-        Helper::optionalParam($bankGroup, 'SettingsPatch', ParamType::INTEGER);
+        Helper::optionalParam($bankGroup, 'SettingsPatch', ParamType::STRING);
 
         return $this->execute('BankGroup.Set', $bankGroup);
     }
 
     /**
      * Creates or updates a player (aka "upsert").
+     *
+     * Available params:
+     *  - Id (string, required)
+     *  - BankGroupId (string, required)
+     *  - Nick (string, optional)
+     *
+     * Example:
+     * <code>
+     * $client->setPlayer(array(
+     *     'Id' => 'LuckyPlayer11_EUR',
+     *     'BankGroupId' => 'GoldenBet_EUR',
+     *     'Nick' => 'LuckyPlayer11',
+     * ));
+     * </code>
      *
      * @param array $player
      * @return array
@@ -162,7 +200,17 @@ class Client
     /**
      * Registers a bonus.
      *
-     * @param $bonus
+     * Available params:
+     *  - Id (string, required)
+     *
+     * Example:
+     * <code>
+     * $client->setBonus(array(
+     *     'Id' => 'WelcomeBonusSpainPlayersJan2024',
+     * ));
+     * </code>
+     *
+     * @param array $bonus
      * @return array
      */
     public function setBonus($bonus)
@@ -201,8 +249,8 @@ class Client
      * Example:
      * <code>
      * $client->createSession(array(
-     *     'PlayerId' => 'player1',
-     *     'GameId' => 'game1',
+     *     'PlayerId' => 'LuckyPlayer11_EUR',
+     *     'GameId' => 'riot',
      *     'PlayerIp' => '127.0.0.1',
      * ));
      * </code>
@@ -240,8 +288,8 @@ class Client
      * Example:
      * <code>
      * $client->createDemoSession(array(
-     *     'GameId' => 'game1',
-     *     'BankGroupId' => 'main',
+     *     'GameId' => 'riot',
+     *     'BankGroupId' => 'GoldenBet_EUR',
      *     'StartBalance' => 100000,
      *     'PlayerIp' => '127.0.0.1',
      * ));
@@ -265,6 +313,16 @@ class Client
     /**
      * Closes a specified session.
      *
+     * Available params:
+     *  - SessionId (string, required)
+     *
+     * Example:
+     * <code>
+     * $client->closeSession(array(
+     *     'SessionId' => 'xxxxxxxxxxxxxxx',
+     * ));
+     * </code>
+     *
      * @param array $session
      * @return array
      */
@@ -278,7 +336,19 @@ class Client
     /**
      * Returns token to access Game History interface.
      *
-     * @param $params
+     * Available params:
+     *  - SessionId (string, required)
+     *  - ExpiryInSeconds (integer, required)
+     *
+     * Example:
+     * <code>
+     * $client->getHistoryToken(array(
+     *     'SessionId' => 'xxxxxxxxxxxxxxx',
+     *     'ExpiryInSeconds' => 300,
+     * ));
+     * </code>
+     *
+     * @param array $params
      * @return array
      */
     public function getHistoryToken($params)
