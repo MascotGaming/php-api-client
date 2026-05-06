@@ -56,6 +56,13 @@ class Helper
                 if (!is_array($params[$key])) {
                     throw new Exception('Specified parameter ' . $key . ' must be an array');
                 }
+                break;
+
+            case ParamType::IP_ADDRESS:
+                if (!filter_var($params[$key], FILTER_VALIDATE_IP)) {
+                    throw new Exception('Specified parameter ' . $key . ' must be a valid IP address');
+                }
+                break;
         }
     }
 }

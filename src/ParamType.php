@@ -9,4 +9,5 @@ class ParamType
     const TIMESTAMP = 'timestamp';
     const STRINGS_ARRAY = 'stringsArray';
     const T_ARRAY = 'array';
+    const IP_ADDRESS = 'ip_address';
 }

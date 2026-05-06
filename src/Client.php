@@ -185,6 +185,28 @@ class Client
     /**
      * Creates a game session.
      *
+     * Available params:
+     *  - PlayerId (string, required)
+     *  - GameId (string, required)
+     *  - BonusId (string, optional)
+     *  - RestorePolicy (string, optional)
+     *      Allowed values:
+     *          - Restore
+     *          - Create
+     *  - StaticHost (string, optional)
+     *  - AlternativeId (string, optional)
+     *  - PlayerIp (string, optional, valid IPv4/IPv6)
+     *  - BaseHost (string, optional)
+     *
+     * Example:
+     * <code>
+     * $client->createSession(array(
+     *     'PlayerId' => 'player1',
+     *     'GameId' => 'game1',
+     *     'PlayerIp' => '127.0.0.1',
+     * ));
+     * </code>
+     *
      * @param array $session
      * @return array
      */
@@ -198,12 +220,32 @@ class Client
         });
         Helper::optionalParam($session, 'StaticHost', ParamType::STRING);
         Helper::optionalParam($session, 'AlternativeId', ParamType::STRING);
+        Helper::optionalParam($session, 'PlayerIp', ParamType::IP_ADDRESS);
+        Helper::optionalParam($session, 'BaseHost', ParamType::STRING);
 
         return $this->execute('Session.Create', $session);
     }
 
     /**
      * Creates a demo session.
+     *
+     * Available params:
+     *  - GameId (string, required)
+     *  - BankGroupId (string, required)
+     *  - StartBalance (integer, optional)
+     *  - StaticHost (string, optional)
+     *  - PlayerIp (string, optional, valid IPv4/IPv6)
+     *  - BaseHost (string, optional)
+     *
+     * Example:
+     * <code>
+     * $client->createDemoSession(array(
+     *     'GameId' => 'game1',
+     *     'BankGroupId' => 'main',
+     *     'StartBalance' => 100000,
+     *     'PlayerIp' => '127.0.0.1',
+     * ));
+     * </code>
      *
      * @param array $demoSession
      * @return array
@@ -214,6 +256,8 @@ class Client
         Helper::requiredParam($demoSession, 'BankGroupId', ParamType::STRING);
         Helper::optionalParam($demoSession, 'StartBalance', ParamType::INTEGER);
         Helper::optionalParam($demoSession, 'StaticHost', ParamType::STRING);
+        Helper::optionalParam($demoSession, 'PlayerIp', ParamType::IP_ADDRESS);
+        Helper::optionalParam($demoSession, 'BaseHost', ParamType::STRING);
 
         return $this->execute('Session.CreateDemo', $demoSession);
     }
