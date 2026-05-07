@@ -1,4 +1,5 @@
 <?php
+
 use mascotgaming\mascot\api\client\Client;
 
 require __DIR__.'/vendor/autoload.php';

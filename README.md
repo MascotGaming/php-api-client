@@ -4,7 +4,7 @@ Operator API v1 client for PHP.
 ## Requirements
 
 > - PHP 5.6.3 or higher
-> - The **phpseclib3** library.
+> - The **phpseclib2** library.
     >   - (required for secure 64-bit nonce generation used by the signature mechanism)
 > - OpenSSL and cURL extensions (required by json-rpc client)
 

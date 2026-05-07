@@ -11,9 +11,9 @@ class Middleware
 	/**
 	 * Attachable signing middleware for the JsonRPC client.
 	 *
-	 * @param Client $client client to attach middleware to.
-	 * @param Signer $signer Signer to sign requests.
-	 * @param Nonce $nonce Nonce generator/source.
+	 * @param Client $client  client to attach middleware to.
+	 * @param Signer $signer  Signer to sign requests.
+	 * @param Nonce  $nonce   Nonce generator/source.
 	 * @param string $subject Subject identifier.
 	 *
 	 * @throws RuntimeException

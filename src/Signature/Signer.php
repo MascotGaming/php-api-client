@@ -34,7 +34,7 @@ class Signer
     /**
      * Signer constructor.
      *
-     * @param string $keyId Key ID provided to you by the API provider.
+     * @param string $keyId    Key ID provided to you by the API provider.
      * @param string $keyValue Key Value provided to you by the API provider.
      */
     public function __construct($keyId, $keyValue)
@@ -46,9 +46,9 @@ class Signer
     /**
      * Generates an HMAC-SHA256 signature for the provided data.
      *
-     * @param string $data The data that needs to be signed.
-     * @param int $nonce A unique nonce (64-bit) to prevent replay attacks.
-     * @param int $timestamp The timestamp (32-bit) when the request is made.
+     * @param string $data      The data that needs to be signed.
+     * @param int    $nonce     A unique nonce (64-bit) to prevent replay attacks.
+     * @param int    $timestamp The timestamp (32-bit) when the request is made.
      *
      * @return string The generated signature in the format `keyId=signature`.
      */

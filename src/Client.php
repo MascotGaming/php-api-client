@@ -41,6 +41,7 @@ class Client
      *          If omitted, cryptographically secure random uint64 nonces are used.
      *
      * @param array $config
+     *
      * @throws Exception If the required configuration is missing or invalid.
      */
     public function __construct($config)
@@ -110,7 +111,8 @@ class Client
 
     /**
      * @param string $method
-     * @param array $params
+     * @param array  $params
+     *
      * @return array
      */
     private function execute($method, $params = array())
@@ -132,6 +134,7 @@ class Client
      * </code>
      *
      * @param array $params
+     *
      * @return array
      */
     public function listGames($params)
@@ -159,6 +162,7 @@ class Client
      * </code>
      *
      * @param array $bankGroup
+     *
      * @return array
      */
     public function setBankGroup($bankGroup)
@@ -188,6 +192,7 @@ class Client
      * </code>
      *
      * @param array $player
+     *
      * @return array
      */
     public function setPlayer($player)
@@ -213,6 +218,7 @@ class Client
      * </code>
      *
      * @param array $bonus
+     *
      * @return array
      */
     public function setBonus($bonus)
@@ -258,6 +264,7 @@ class Client
      * </code>
      *
      * @param array $session
+     *
      * @return array
      */
     public function createSession($session)
@@ -298,6 +305,7 @@ class Client
      * </code>
      *
      * @param array $demoSession
+     *
      * @return array
      */
     public function createDemoSession($demoSession)
@@ -326,6 +334,7 @@ class Client
      * </code>
      *
      * @param array $session
+     *
      * @return array
      */
     public function closeSession($session)
@@ -351,6 +360,7 @@ class Client
      * </code>
      *
      * @param array $params
+     *
      * @return array
      */
     public function getHistoryToken($params)

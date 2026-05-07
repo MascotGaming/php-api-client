@@ -71,11 +71,11 @@ class Verifier
     /**
      * Verifies the request signature based on headers and payload.
      *
-     * @param string $nonce The unique request identifier.
+     * @param string $nonce     The unique request identifier.
      * @param string $signature The provided signature.
-     * @param string $subject The request subject.
+     * @param string $subject   The request subject.
      * @param string $timestamp The timestamp header of the request.
-     * @param string $body The raw request body.
+     * @param string $body      The raw request body.
      *
      * @return bool True if the signature is valid, otherwise false.
      */
