@@ -2,6 +2,8 @@
 
 namespace mascotgaming\mascot\api\client;
 
+use JsonRPC\HttpClient;
+
 class Client
 {
     /**
@@ -47,7 +49,7 @@ class Client
             throw new Exception('You must specify url for API');
         }
 
-        $http = new \JsonRPC\HttpClient($config['url']);
+        $http = new HttpClient($config['url']);
 
         if (array_key_exists('debug', $config) && $config['debug'] === true) {
             $http->withDebug();
