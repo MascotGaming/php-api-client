@@ -4,7 +4,7 @@ namespace Unit\Signature;
 
 use mascotgaming\mascot\api\client\Signature\RandomNonce;
 use PHPUnit\Framework\TestCase;
-use phpseclib3\Math\BigInteger;
+use phpseclib\Math\BigInteger;
 
 class RandomNonceTest extends TestCase
 {
@@ -13,8 +13,8 @@ class RandomNonceTest extends TestCase
         $nonce = new RandomNonce();
         $value = $nonce->next();
 
-        $this->assertIsString($value);
-        $this->assertMatchesRegularExpression('/^[0-9]+$/', $value);
+        $this->assertInternalType('string', $value);
+        $this->assertRegExp('/^[0-9]+$/', $value);
     }
 
     public function testReturnsUint64Value()

@@ -37,21 +37,21 @@ class MiddlewareTest extends TestCase
     {
         $signer = $this->getMockBuilder(Signer::class)
             ->disableOriginalConstructor()
-            ->onlyMethods(['sign'])
+            ->setMethods(['sign'])
             ->getMock();
 
         $nonce = $this->getMockBuilder(Nonce::class)
-            ->onlyMethods(['next'])
+            ->setMethods(['next'])
             ->getMock();
 
         $httpClient = $this->getMockBuilder(HttpClient::class)
             ->disableOriginalConstructor()
-            ->onlyMethods(['withHeaders', 'withBeforeRequestCallback'])
+            ->setMethods(['withHeaders', 'withBeforeRequestCallback'])
             ->getMock();
 
         $client = $this->getMockBuilder(Client::class)
             ->disableOriginalConstructor()
-            ->onlyMethods(['getHttpClient'])
+            ->setMethods(['getHttpClient'])
             ->getMock();
 
         $client->expects($this->once())
@@ -104,21 +104,21 @@ class MiddlewareTest extends TestCase
     {
         $signer = $this->getMockBuilder(Signer::class)
             ->disableOriginalConstructor()
-            ->onlyMethods(['sign'])
+            ->setMethods(['sign'])
             ->getMock();
 
         $nonce = $this->getMockBuilder(Nonce::class)
-            ->onlyMethods(['next'])
+            ->setMethods(['next'])
             ->getMock();
 
         $httpClient = $this->getMockBuilder(HttpClient::class)
             ->disableOriginalConstructor()
-            ->onlyMethods(['withHeaders', 'withBeforeRequestCallback'])
+            ->setMethods(['withHeaders', 'withBeforeRequestCallback'])
             ->getMock();
 
         $client = $this->getMockBuilder(Client::class)
             ->disableOriginalConstructor()
-            ->onlyMethods(['getHttpClient'])
+            ->setMethods(['getHttpClient'])
             ->getMock();
 
         $client->expects($this->once())

@@ -2,8 +2,8 @@
 
 namespace mascotgaming\mascot\api\client\Signature;
 
-use phpseclib3\Crypt\Random;
-use phpseclib3\Math\BigInteger;
+use phpseclib\Crypt\Random;
+use phpseclib\Math\BigInteger;
 
 class RandomNonce implements Nonce
 {
